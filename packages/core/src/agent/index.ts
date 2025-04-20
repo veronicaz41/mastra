@@ -676,6 +676,13 @@ export class Agent<
         const systemMessage: CoreMessage = {
           role: 'system',
           content: instructions || `${this.instructions}.`,
+          providerOptions: {
+            anthropic: {
+              cacheControl: {
+                type: 'ephemeral',
+              },
+            },
+          },
         };
 
         let coreMessages = messages;
